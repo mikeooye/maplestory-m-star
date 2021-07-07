@@ -19,9 +19,9 @@ while (1) {
   var rule = [
     // 背包上，白色的两个点
     { x: 1168, y: 29, color: "ffffff" },
-    { x: 1167, y: 46, color: "ffffff" },
+    // { x: 1167, y: 46, color: "ffffff" },
     // 背包容量进度，灰色底，如果非灰色，表示即将满
-    { x: 1187, y: 61, not_color: "a1a6ad" },
+    { x: 1173, y: 44, not_color: "ffffff" },
   ];
   passRule(img, rule, function () {
     _click2(1167, 46);
@@ -50,6 +50,53 @@ while (1) {
 
     _click2(1242, 80);
     sleep(1000);
+
+    img = images.captureScreen();
+
+    ruleMatched = true;
+  });
+
+  // 死亡
+  var rule = [
+    // 回城
+    { x: 481, y: 549, color: "4c87b0" },
+    // 复活按钮，蓝色
+    { x: 603, y: 540, color: "4c87b0" },
+    // 复活按钮，橙色
+    { x: 846, y: 546, color: "ee7046" },
+  ];
+  passRule(img, rule, function () {
+    // 回城
+    _click2(450, 556);
+    sleep(3000);
+    // 经验确认弹窗
+    _click2(641, 569);
+    sleep(1500);
+    console.log("回城");
+
+    _click2(1236, 37);
+    sleep(1500);
+    _click2(861, 198);
+    sleep(1500);
+    _click2(121, 612);
+    sleep(1500);
+    _click2(1155, 417);
+    sleep(1500);
+    _click2(1160, 702);
+    sleep(1500);
+    _click2(789, 571);
+    sleep(3000);
+    console.log("回到星力场");
+
+    _click2(425, 736);
+    sleep(1500);
+    _click2(430, 733);
+    sleep(1500);
+
+    _click2(803, 611);
+    sleep(1500);
+
+    console.log("开始自动攻击");
 
     img = images.captureScreen();
 
